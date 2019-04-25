@@ -92,13 +92,13 @@ var page = function(){
 					var itemComment = {
 						thumbnail: "http://casitaoaxaca.com/koken/storage/cache/images/000/033/oxc-fb-profile-img-h5,tiny.crop.2x.1501091503.png",
 						name: strName,
-						comment: index + "/" + strMessage.length + "" + item,
+						comment: index + "/" + strMessage.length + "_" + item,
 						dateCreate: now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear()
 					};
 					arrTmp.push(itemComment);
 				});
 			}
-			data = [...arrTmp];
+			data = [...data, arrTmp];
 			localStorage.setItem("tempData",JSON.stringify(data));
 			_Lib.renderListComment(JSON.parse(localStorage.getItem("tempData")));
 		});
