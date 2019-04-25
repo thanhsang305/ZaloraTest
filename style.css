@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+body{
+	font-size: 13px;
+	font-family: Roboto;
+	color: #333;
+}
+img{
+	max-width: 100%;
+	height: auto;
+}
+.wrapper{
+	max-width: 900px;
+	margin:0 auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+	padding: 15px;
+	border-radius: 5px;
+}
+.item-comment{
+	max-width: 500px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 7px auto;
+	padding: 30px;
+	display: flex;
+}
+.item-comment .thumbnail{
+	width: 200px;
+	margin-right: 15px; 
+}
+.item-comment .thumbnail img{
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	max-width: 120px;
+}
+.item-comment .info{
+	width: 100%;
+}
+.item-comment .info h2{
+	margin-top: 0;
+	margin-bottom: 5px;
+	color: #25a2d7;
+}
+.item-comment .info p{
+	color: #333;
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+.item-comment .info .dateCreate{
+	display: table;
+	float: right;
+	color: #ddd;
+}
+.form{
+	max-width: 500px;
+	margin: 0 auto;	
+	padding: 30px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.form input, .form textarea{
+	width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 7px 0;
+}
+.form textarea{
+	resize: none;
+	height: 80px;
+}
+.form input:hover{
+	outline: none;
+}
+.form button{
+	border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 120px;
+    width: 100%;
+    background: #19af42;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form button:hover{
+	background: #fef46e;
+	color: #333;
+}
