@@ -87,3 +87,12 @@ img{
 	background: #fef46e;
 	color: #333;
 }
+@media(max-width: 767px){
+	.item-comment{
+		display: inherit;		
+	}
+	.item-comment .thumbnail{
+		margin: 0 auto;	
+		text-align: center;
+	}
+}
