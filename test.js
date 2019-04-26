@@ -80,27 +80,35 @@ var page = function(){
 	function detectButtonSubmit(){
 		document.querySelector("button#submit-comment").addEventListener("click", ()=>{
 			var strName = document.querySelector("input[name='name']").value;
-			var strMessage = _Lib.strProcess(document.querySelector("textarea[name='comment']").value);
-			
-			var data = JSON.parse(localStorage.getItem("tempData"));
-			console.log(strMessage);
-			var arrTmp = new Array();
-			if(strMessage.length > 0){
-				strMessage.map((item, index)=>{
-					console.log("item: " + item + "-" + index);
-					var now = new Date();
-					var itemComment = {
-						thumbnail: "http://casitaoaxaca.com/koken/storage/cache/images/000/033/oxc-fb-profile-img-h5,tiny.crop.2x.1501091503.png",
-						name: strName,
-						comment: index + "/" + strMessage.length + "_" + item,
-						dateCreate: now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear()
-					};
-					arrTmp.push(itemComment);
-				});
+			var strMessage = document.querySelector("textarea[name='comment']").value;
+			var arrComment = _Lib.strProcess(strMessage);
+			//================================================================
+			if(strName == "" ||  strMessage == ""){
+				//============= Check require
+				alert("Vui lòng không bỏ trống trường họ tên và nội dung !");
 			}
-			data = [...data, arrTmp];
-			localStorage.setItem("tempData",JSON.stringify(data));
-			_Lib.renderListComment(JSON.parse(localStorage.getItem("tempData")));
+			else{
+				var data = JSON.parse(localStorage.getItem("tempData"));
+				console.log(arrComment);
+				var arrTmp = new Array();
+				if(arrComment.length > 0){
+					arrComment.map((item, index)=>{
+						console.log("item: " + item + "-" + index);
+						var now = new Date();
+						var itemComment = {
+							thumbnail: "http://casitaoaxaca.com/koken/storage/cache/images/000/033/oxc-fb-profile-img-h5,tiny.crop.2x.1501091503.png",
+							name: strName,
+							comment: index + "/" + arrComment.length + "_" + item,
+							dateCreate: now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear()
+						};
+						data.push(itemComment);
+					});
+				}
+				localStorage.setItem("tempData",JSON.stringify(data));
+				_Lib.renderListComment(JSON.parse(localStorage.getItem("tempData")));
+				document.querySelector("input[name='name']").value = "";
+				document.querySelector("textarea[name='comment']").value = "";
+			}
 		});
 	}
 	return{
